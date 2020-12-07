@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>QQ注册成为美胸汇会员</title>
+    <link rel="stylesheet" href="css/resetCss.css">
+    <link rel="stylesheet" href="css/phone_register.css">
+    <script>
+        document.documentElement.style.fontSize = (document.documentElement.clientWidth || window.innerWidth || window.body.clientWidth) / 750 * 100 + "px";
+    </script>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+</head>
+
+<body>
+
+    <!--提示框-->
+    <div class="tip_t"></div>
+    <script type="text/javascript">
+        var invitation = getUrlParam('invitation'); //邀请码
+        if (invitation == null || invitation == '') {
+            invitation = "";
+        }
+        /**
+         * 获取参数值.
+         */
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+    </script>
+    <script>
+        window.onload = function () {
+            var serverUrl = "app.meibbc.com/BeautifyBreast";
+            var redirectUrl = 'http%3A%2F%2F' + serverUrl + '/app/register/qq_register.html';
+            // %3A%2F%2F https://中的s://的转义符
+            // 有多个的时候参数与参数之间用转义符%26连接
+            // 授权成功后返回的地址参考：http://graph.qq.com/demo/index.jsp?code=9A5F************************06AF&state=test;
+            location.href = ' https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=101429792&redirect_uri='+redirectUrl+'&state=test';
+            // console.log(location.href);
+            //用点击了同意获取code
+
+        }
+    </script>
+</body>
+
+</html>
